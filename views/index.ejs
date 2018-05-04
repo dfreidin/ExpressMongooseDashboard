@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bears</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
+</head>
+<body>
+    <h1>All Bears</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Bear Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(typeof(bears) != "undefined") { %>
+                <% for(var x=0; x<bears.length; x++) { %>
+                    <tr>
+                        <td><a href="/bears/<%= bears[x]._id%>"><%= bears[x].name %></a></td>
+                        <td><a href="/bears/edit/<%= bears[x]._id %>">Edit</a> | <a href="/bears/destroy/<%= bears[x]._id %>">Delete</a></td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </tbody>
+    </table>
+    <p><a href="/bears/new">New bear</a></p>
+</body>
+</html>
